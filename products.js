@@ -153,7 +153,7 @@ const PRODUCTS = [
 // CONFIG — Replace with your actual Google Apps Script URL
 // ============================================================
 const CONFIG = {
-  SCRIPT_URL: "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec",
+  SCRIPT_URL: "https://script.google.com/macros/s/AKfycbwdjEhrDo2RN2LfP0y5fKhYoshMUjqQDc1H_ygxIEF8d0DSxKN4pjRVtM0MVf3XobB3/exec",
   CURRENCY: "KES",
   FREE_DELIVERY_THRESHOLD: 5000
 };
