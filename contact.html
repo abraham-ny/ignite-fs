@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us — Ignite Fireworks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital@1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<nav class="navbar scrolled" id="navbar">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="brand-icon">✦</span> IGNITE</a>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#products">Shop</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="contact.html" class="active">Contact Us</a></li>
+      <li><a href="admin.html" class="nav-admin">Admin ⚙</a></li>
+      <li><a href="index.html#order-section" class="nav-cta">Order Now</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero">
+  <div class="hero-bg-orbs">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+  </div>
+  <div class="page-hero-content">
+    <p class="eyebrow">We'd Love to Hear From You</p>
+    <h1>Contact <em>Us</em></h1>
+    <p>Questions, custom orders, event planning — reach out and our team responds within 24 hours.</p>
+  </div>
+</section>
+
+<!-- ===== CONTACT SECTION ===== -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="contact-layout">
+
+      <!-- Info cards -->
+      <div class="contact-info">
+        <div class="contact-card glass-card">
+          <span class="contact-icon">📞</span>
+          <h4>Call Us</h4>
+          <p>+254 700 000 000</p>
+          <p>+254 733 000 000</p>
+          <small>Mon–Sat, 8am–6pm</small>
+        </div>
+        <div class="contact-card glass-card">
+          <span class="contact-icon">✉️</span>
+          <h4>Email</h4>
+          <p>info@ignitefireworks.co.ke</p>
+          <p>orders@ignitefireworks.co.ke</p>
+          <small>We reply within 24 hours</small>
+        </div>
+        <div class="contact-card glass-card">
+          <span class="contact-icon">📍</span>
+          <h4>Visit Us</h4>
+          <p>Westlands Business Park</p>
+          <p>Nairobi, Kenya</p>
+          <small>Appointment recommended</small>
+        </div>
+        <div class="contact-card glass-card">
+          <span class="contact-icon">💬</span>
+          <h4>WhatsApp</h4>
+          <p>+254 700 000 000</p>
+          <small>Quick responses</small>
+        </div>
+      </div>
+
+      <!-- Feedback form -->
+      <div class="contact-form-wrap">
+        <form class="glass-card contact-form" id="contactForm" novalidate>
+          <h3>Send a Message</h3>
+          <p class="form-intro">Use this form for general enquiries, feedback, or to request a quote for a large event.</p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Your Name *</label>
+              <input type="text" id="cfName" placeholder="Jane Doe" required/>
+            </div>
+            <div class="form-group">
+              <label>Email Address *</label>
+              <input type="email" id="cfEmail" placeholder="jane@email.com" required/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" id="cfPhone" placeholder="+254 700 000000"/>
+          </div>
+          <div class="form-group">
+            <label>Subject *</label>
+            <select id="cfSubject" required>
+              <option value="">Choose a topic</option>
+              <option>Product Enquiry</option>
+              <option>Custom Event Quote</option>
+              <option>Wholesale / Bulk Order</option>
+              <option>Delivery Question</option>
+              <option>Safety Information</option>
+              <option>Feedback / Complaint</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Your Message *</label>
+            <textarea id="cfMessage" rows="5" placeholder="Tell us how we can help…" required></textarea>
+          </div>
+          <div class="form-group rating-group">
+            <label>Rate Your Experience (optional)</label>
+            <div class="star-rating" id="starRating">
+              <span data-val="1">★</span>
+              <span data-val="2">★</span>
+              <span data-val="3">★</span>
+              <span data-val="4">★</span>
+              <span data-val="5">★</span>
+            </div>
+            <input type="hidden" id="cfRating" value="0"/>
+          </div>
+          <button type="submit" class="btn-primary btn-full" id="cfSubmitBtn">
+            <span id="cfLabel">Send Message</span>
+            <span id="cfSpinner" class="spinner" style="display:none"></span>
+          </button>
+          <p class="form-disclaimer">Your message will be stored securely and responded to promptly.</p>
+        </form>
+
+        <!-- Success State -->
+        <div class="contact-success glass-card" id="contactSuccess" style="display:none">
+          <div class="success-icon">🎆</div>
+          <h3>Message Sent!</h3>
+          <p>Thank you for reaching out. Our team will get back to you within 24 hours.</p>
+          <button class="btn-primary" onclick="resetContactForm()">Send Another Message</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">Common Questions</p>
+      <h2>FAQ</h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item glass-card">
+        <h4>Do you deliver nationwide?</h4>
+        <p>Yes! We deliver across Kenya. Delivery times vary by location — Nairobi orders are typically next-day, upcountry 2–4 business days.</p>
+      </div>
+      <div class="faq-item glass-card">
+        <h4>Are your fireworks safety certified?</h4>
+        <p>Absolutely. All our products meet KEBS standards and are imported from certified manufacturers. We include safety instructions with every order.</p>
+      </div>
+      <div class="faq-item glass-card">
+        <h4>Do you do custom event displays?</h4>
+        <p>Yes! Our team can design and execute a custom fireworks display for your event. Contact us at least 2 weeks in advance for large events.</p>
+      </div>
+      <div class="faq-item glass-card">
+        <h4>What's your minimum order for wholesale?</h4>
+        <p>Wholesale orders start at KES 50,000. We offer competitive pricing for retailers and event companies. Reach out via the contact form above.</p>
+      </div>
+      <div class="faq-item glass-card">
+        <h4>Can I pick up my order?</h4>
+        <p>Yes, collection is available from our Westlands warehouse Monday–Saturday, 8am–5pm. Please schedule in advance.</p>
+      </div>
+      <div class="faq-item glass-card">
+        <h4>What payment methods do you accept?</h4>
+        <p>We accept M-Pesa, bank transfer, and cash on delivery for Nairobi orders. Payment details are confirmed upon order approval.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a class="brand" href="index.html"><span class="brand-icon">✦</span> IGNITE</a>
+      <p>Kenya's premier fireworks supplier. Lighting up every celebration since 2014.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="index.html#products">Shop</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="admin.html">Admin</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <h4>Get In Touch</h4>
+      <p>📞 +254 700 000 000</p>
+      <p>✉️ info@ignitefireworks.co.ke</p>
+      <p>📍 Nairobi, Kenya</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Ignite Fireworks. All rights reserved.</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="products.js"></script>
+<script>
+  // Nav
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.getElementById("navLinks");
+  hamburger?.addEventListener("click", () => {
+    navLinks?.classList.toggle("open");
+    hamburger.classList.toggle("active");
+  });
+
+  function showToast(msg, type="success") {
+    const t = document.getElementById("toast");
+    t.textContent = msg;
+    t.className = `toast show ${type}`;
+    clearTimeout(t._t);
+    t._t = setTimeout(() => t.classList.remove("show"), 3500);
+  }
+
+  // Star Rating
+  const stars = document.querySelectorAll("#starRating span");
+  const ratingInput = document.getElementById("cfRating");
+  stars.forEach(star => {
+    star.addEventListener("click", () => {
+      const val = parseInt(star.dataset.val);
+      ratingInput.value = val;
+      stars.forEach((s, i) => s.classList.toggle("active", i < val));
+    });
+    star.addEventListener("mouseover", () => {
+      const val = parseInt(star.dataset.val);
+      stars.forEach((s, i) => s.classList.toggle("hover", i < val));
+    });
+    star.addEventListener("mouseout", () => {
+      stars.forEach(s => s.classList.remove("hover"));
+    });
+  });
+
+  // Contact Form
+  document.getElementById("contactForm")?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const name = document.getElementById("cfName").value.trim();
+    const email = document.getElementById("cfEmail").value.trim();
+    const subject = document.getElementById("cfSubject").value;
+    const message = document.getElementById("cfMessage").value.trim();
+    const phone = document.getElementById("cfPhone").value.trim();
+    const rating = document.getElementById("cfRating").value;
+
+    if (!name || !email || !subject || !message) {
+      showToast("Please fill in all required fields.", "error"); return;
+    }
+    const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailReg.test(email)) {
+      showToast("Please enter a valid email address.", "error"); return;
+    }
+
+    const btn = document.getElementById("cfSubmitBtn");
+    const label = document.getElementById("cfLabel");
+    const spinner = document.getElementById("cfSpinner");
+    btn.disabled = true; label.style.display = "none"; spinner.style.display = "inline-block";
+
+    try {
+      const resp = await fetch(CONFIG.SCRIPT_URL, {
+        method: "POST",
+        body: JSON.stringify({
+          action: "submitContact",
+          name, email, phone, subject, message, rating,
+          date: new Date().toISOString()
+        })
+      });
+      const result = await resp.json();
+      if (result.success) {
+        document.getElementById("contactForm").style.display = "none";
+        document.getElementById("contactSuccess").style.display = "flex";
+      } else {
+        showToast("Something went wrong. Please try again.", "error");
+      }
+    } catch {
+      showToast("Network error. Please try again.", "error");
+    } finally {
+      btn.disabled = false; label.style.display = "inline"; spinner.style.display = "none";
+    }
+  });
+
+  function resetContactForm() {
+    document.getElementById("contactForm").reset();
+    document.getElementById("cfRating").value = "0";
+    stars.forEach(s => { s.classList.remove("active","hover"); });
+    document.getElementById("contactForm").style.display = "flex";
+    document.getElementById("contactSuccess").style.display = "none";
+  }
+</script>
+</body>
+</html>

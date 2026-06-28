@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ignite Fireworks — Light Up the Night</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-icon">✦</span> IGNITE
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#products">Shop</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="admin.html" class="nav-admin">Admin ⚙</a></li>
+      <li><a href="#order-section" class="nav-cta">Order Now</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero" id="hero">
+  <div class="hero-bg-orbs">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+  </div>
+  <canvas id="sparkCanvas"></canvas>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Professional Grade · Retail & Wholesale</p>
+    <h1 class="hero-title">Light Up<br/><em>Every</em> Sky</h1>
+    <p class="hero-sub">From backyard celebrations to grand events — premium fireworks delivered to your door. Safety-certified, brilliantly bright.</p>
+    <div class="hero-actions">
+      <a href="#products" class="btn-primary">Browse Products</a>
+      <a href="contact.html" class="btn-ghost">Contact Us</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span>500+</span><label>Products</label></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span>12K+</span><label>Happy Customers</label></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span>10+</span><label>Years in Business</label></div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</header>
+
+<!-- ===== PRODUCTS ===== -->
+<section class="section" id="products">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">Our Collection</p>
+      <h2>Shop Fireworks</h2>
+      <p class="section-sub">Every product is safety-tested and certified. Free delivery on orders above KES 5,000.</p>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="aerial">Aerial Shells</button>
+      <button class="filter-btn" data-filter="fountain">Fountains</button>
+      <button class="filter-btn" data-filter="sparkler">Sparklers</button>
+      <button class="filter-btn" data-filter="roman">Roman Candles</button>
+      <button class="filter-btn" data-filter="cake">Cake Packs</button>
+    </div>
+
+    <div class="products-grid" id="productsGrid">
+      <!-- Injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ===== ORDER FORM ===== -->
+<section class="section section-dark" id="order-section">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">Ready to Order?</p>
+      <h2>Place Your Order</h2>
+      <p class="section-sub">Fill in your details and we'll confirm your order within 24 hours.</p>
+    </div>
+    <div class="order-layout">
+      <div class="order-summary glass-card" id="orderSummary">
+        <h3>Your Cart</h3>
+        <div id="cartItems"><p class="empty-cart">No items added yet. Browse products above and click "Add to Cart".</p></div>
+        <div class="cart-total" id="cartTotal" style="display:none">
+          <span>Total</span><strong id="totalAmt">KES 0</strong>
+        </div>
+      </div>
+      <form class="order-form glass-card" id="orderForm" novalidate>
+        <h3>Your Details</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" id="custName" placeholder="Jane Doe" required />
+          </div>
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" id="custPhone" placeholder="+254 700 000000" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address *</label>
+          <input type="email" id="custEmail" placeholder="jane@email.com" required />
+        </div>
+        <div class="form-group">
+          <label>Delivery Address *</label>
+          <textarea id="custAddress" rows="3" placeholder="Street, City, County…" required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Event Type</label>
+          <select id="eventType">
+            <option value="">Select event type</option>
+            <option>Wedding</option>
+            <option>Corporate Event</option>
+            <option>Birthday Party</option>
+            <option>New Year Celebration</option>
+            <option>Concert / Festival</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Event Date</label>
+          <input type="date" id="eventDate" />
+        </div>
+        <div class="form-group">
+          <label>Special Instructions</label>
+          <textarea id="custNotes" rows="2" placeholder="Any special requests…"></textarea>
+        </div>
+        <button type="submit" class="btn-primary btn-full" id="submitOrderBtn">
+          <span id="submitLabel">Submit Order</span>
+          <span id="submitSpinner" class="spinner" style="display:none"></span>
+        </button>
+        <p class="form-disclaimer">By submitting you agree to our terms. Orders subject to availability.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="section" id="about">
+  <div class="container about-layout">
+    <div class="about-text">
+      <p class="eyebrow">Our Story</p>
+      <h2>Passion Ignited<br/><em>Since 2014</em></h2>
+      <p>Ignite Fireworks was founded by a family of pyrotechnics enthusiasts with one simple mission: bring professional-grade fireworks to every celebration, big or small. We import directly from certified manufacturers, ensuring quality, safety, and brilliant displays every time.</p>
+      <p>Our team of licensed pyrotechnic experts can advise you on the perfect display for your event, budget, and venue. We stock everything from hand-held sparklers for intimate celebrations to large-calibre aerial shells for stadium-scale events.</p>
+      <div class="about-badges">
+        <div class="badge glass-card"><span>🏅</span>Licensed Dealer</div>
+        <div class="badge glass-card"><span>🔒</span>Safety Certified</div>
+        <div class="badge glass-card"><span>🚚</span>Nationwide Delivery</div>
+        <div class="badge glass-card"><span>💬</span>Expert Advice</div>
+      </div>
+    </div>
+    <div class="about-visual">
+      <div class="about-glow-box">
+        <div class="glow-ring"></div>
+        <p class="big-number">10<span>+</span></p>
+        <p>Years lighting up Kenya's skies</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="section section-dark" id="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">What They Say</p>
+      <h2>Customer Stories</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testi-card glass-card">
+        <p>"The aerial shell display we got for our wedding was absolutely breathtaking. Every guest was speechless. Ignite's team was professional from start to finish."</p>
+        <div class="testi-author"><strong>Sarah M.</strong><span>Wedding, Nairobi 2024</span></div>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="testi-card glass-card">
+        <p>"We ordered for our corporate gala — the whole process was smooth, delivery was on time, and the fireworks were spectacular. Will definitely reorder."</p>
+        <div class="testi-author"><strong>James K.</strong><span>Corporate Event, Mombasa</span></div>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="testi-card glass-card">
+        <p>"Best sparklers in the market! The kids loved them. Packaging was great and the safety instructions were clear. Highly recommended."</p>
+        <div class="testi-author"><strong>Amina W.</strong><span>Birthday Party, Kisumu</span></div>
+        <div class="stars">★★★★☆</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a class="brand" href="index.html"><span class="brand-icon">✦</span> IGNITE</a>
+      <p>Kenya's premier fireworks supplier. Lighting up every celebration since 2014.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#products">Shop</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="admin.html">Admin</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Categories</h4>
+      <ul>
+        <li><a href="#products">Aerial Shells</a></li>
+        <li><a href="#products">Fountains</a></li>
+        <li><a href="#products">Sparklers</a></li>
+        <li><a href="#products">Roman Candles</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <h4>Get In Touch</h4>
+      <p>📞 +254 700 000 000</p>
+      <p>✉️ info@ignitefireworks.co.ke</p>
+      <p>📍 Nairobi, Kenya</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Ignite Fireworks. All rights reserved. | Handle with care. Follow safety guidelines.</p>
+  </div>
+</footer>
+
+<!-- ===== TOAST ===== -->
+<div class="toast" id="toast"></div>
+
+<!-- ===== CART BUBBLE ===== -->
+<button class="cart-fab" id="cartFab" title="View Cart">
+  🛒 <span class="cart-count" id="cartCount">0</span>
+</button>
+
+<script src="products.js"></script>
+<script src="cart.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
